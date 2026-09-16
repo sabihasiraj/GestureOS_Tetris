@@ -7,13 +7,22 @@
 A real-time hand-gesture-controlled Tetris game running on an ESP32-S3 with FreeRTOS,
 powered by a Python + MediaPipe computer vision pipeline over Wi-Fi (UDP).
 
+## 👥 Contributors — CSE323.7, Group 8
+
+| Name | Student ID |
+|---|---|
+| Sabiha Binte Siraj | 2222633042 |
+| Tarif Bin Mehedi | 2221265042 |
+| Sabbir Ahmed | 2222322642 |
+
+
 ![GestureOS Tetris Demo](assets/demo.gif)
 
 </div>
 
 ---
 
-## 📌 Overview
+## Overview
 
 **GestureOS Tetris** is a CSE323 (Operating Systems) course project that turns a
 webcam and an ESP32-S3 microcontroller into a full gesture-controlled gaming console.
@@ -34,7 +43,7 @@ workload across multiple parallel tasks pinned to both CPU cores.
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```mermaid
 flowchart LR
@@ -46,7 +55,7 @@ flowchart LR
 
     GES -- "UDP Packet<br/>LEFT / RIGHT / ROTATE / DROP / PAUSE" --> NET(("Wi-Fi<br/>Network")) --> ESP
 
-    subgraph ESP["🔩 ESP32-S3 (FreeRTOS)"]
+    subgraph ESP["ESP32-S3 (FreeRTOS)"]
         direction TB
         GT["GestureTask<br/>(receives UDP)"] --> CQ[["Command Queue"]]
         CQ --> GLT["GameLogicTask<br/>(physics, scoring, collisions)"]
@@ -70,7 +79,7 @@ and synchronized with queues, mutexes, and event groups:
 - **`AudioTask`** — drives the buzzer for sound effects
 - **`MonitorTask`** — tracks live CPU load, RAM usage, and task latency for the on-screen system monitor
 
-### 🔀 FreeRTOS Task & Core Distribution
+### FreeRTOS Task & Core Distribution
 
 ```mermaid
 flowchart TB
@@ -113,7 +122,7 @@ sequenceDiagram
 
 ---
 
-## ✨ Features
+## Features
 
 - 🖐️ **Real-time hand gesture recognition** using MediaPipe Hand Landmarker
 - 📡 **Wi-Fi UDP control** — no wires needed between the camera and the game console
@@ -127,7 +136,7 @@ sequenceDiagram
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -139,7 +148,7 @@ sequenceDiagram
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```
 GestureOS_Tetris/
@@ -152,7 +161,7 @@ GestureOS_Tetris/
 
 ---
 
-## ⚙️ Hardware Requirements
+## Hardware Requirements
 
 - ESP32-S3 development board
 - ST7735 TFT display (128×160, black tab)
@@ -160,7 +169,7 @@ GestureOS_Tetris/
 - Push button (for manual pause / menu control)
 - A webcam-equipped computer on the **same Wi-Fi network** as the ESP32-S3
 
-### 🔌 Pin Mapping Diagram
+### Pin Mapping Diagram
 
 ```mermaid
 flowchart LR
@@ -206,7 +215,7 @@ flowchart LR
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Flash the ESP32-S3 firmware
 
@@ -244,13 +253,8 @@ A camera window will open. Show your hand to start playing — press **Q** to qu
 
 ---
 
-## 🎥 Demo
 
-![Gameplay Demo](assets/demo.gif)
-
----
-
-## 🧠 Operating Systems Concepts Applied
+## Operating Systems Concepts Applied
 
 This project was built for **CSE323 – Operating Systems** and demonstrates:
 
@@ -263,15 +267,6 @@ This project was built for **CSE323 – Operating Systems** and demonstrates:
 
 ---
 
-## 👥 Contributors — CSE323.7, Group 8
-
-| Name | Student ID |
-|---|---|
-| Tarif Bin Mehedi | 2221265042 |
-| Sabiha Binte Siraj | 2222633042 |
-| Sabbir Ahmed | 2222322642 |
-
----
 
 ## 📄 License
 
